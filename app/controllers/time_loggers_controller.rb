@@ -70,7 +70,11 @@ class TimeLoggersController < ApplicationController
             hours = @time_logger.hours_spent.round(2)
             @time_logger.destroy
 
-            redirect_to :controller => 'issues', :action => 'edit', :id => issue_id, :time_entry => { :hours => hours }
+            redirect_to :controller => 'issues',
+                        :protocol => 'https://',
+                        :action => 'edit',
+                        :id => issue_id,
+                        :time_entry => { :hours => hours }
         end
     end
 
